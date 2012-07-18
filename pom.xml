@@ -11,6 +11,15 @@
   <version>0.5.0</version>
   <packaging>hpi</packaging>
 
+  <licenses>
+    <license>
+      <name>The MIT license</name>
+      <url>https://raw.github.com/pyr/jenkins-leiningen/master/LICENSE</url>
+      <distribution>repo</distribution>
+      <comments>Standard attribution only license</comments>
+    </license>
+  </licenses>
+
   <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need -->
   <repositories>
     <repository>
