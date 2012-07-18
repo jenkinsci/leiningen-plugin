@@ -1,0 +1,6 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+  <f:entry title="Leiningen Task Name and Arguments" field="task">
+    <f:textbox default="jar" />
+  </f:entry>
+</j:jelly>
