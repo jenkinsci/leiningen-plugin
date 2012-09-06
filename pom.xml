@@ -43,4 +43,13 @@
     <developerConnection>scm:git:ssh://git@github.com/pyr/jenkins-leiningen.git</developerConnection>
     <url>https://github.com/pyr/jenkins-leiningen</url>
   </scm>
+
+  <developers>
+    <developer>
+      <id>pyr</id>
+      <name>Pierre-Yves Ritschard</name>
+      <email>pyr@spootnik.org</email>
+    </developer>
+  </developers>
+
 </project>
