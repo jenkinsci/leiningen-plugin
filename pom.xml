@@ -39,9 +39,9 @@
   </pluginRepositories>
 
   <scm>
-    <connection>scm:git:ssh://github.com/pyr/jenkins-leiningen.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/pyr/jenkins-leiningen.git</developerConnection>
-    <url>https://github.com/pyr/jenkins-leiningen</url>
+    <connection>scm:git:ssh://github.com/jenkinsci/leiningen-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/leiningen-plugin.git</developerConnection>
+    <url>https://github.com/jenkinsci/leiningen-plugin</url>
   </scm>
 
   <developers>
