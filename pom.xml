@@ -6,8 +6,8 @@
     <version>1.424</version><!-- which version of Jenkins is this plugin built against? -->
   </parent>
 
-  <groupId>org.spootnik</groupId>
-  <artifactId>jenkins-leiningen</artifactId>
+  <groupId>org.jenkins-ci.plugins</groupId>
+  <artifactId>leiningen-plugin</artifactId>
   <version>0.5.2-SNAPSHOT</version>
   <packaging>hpi</packaging>
   <name>leiningen-plugin</name>
