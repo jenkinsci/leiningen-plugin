@@ -177,6 +177,15 @@ public class LeiningenBuilder extends Builder {
          */
 	private String jarPath;
 
+	/**
+	 *
+	 * Make sure configuration is read at startup
+	 *
+	 */
+	public DescriptorImpl() {
+		load();
+	}
+
 	public String getJarPath() {
 		return jarPath;
 	}
