@@ -36,18 +36,20 @@ import java.util.regex.Pattern;
  *
  * <p>
  * When a build is performed, the {@link #perform(AbstractBuild, Launcher, BuildListener)}
- * method will be invoked. 
+ * method will be invoked.
  *
  * @author Kohsuke Kawaguchi
  */
 public class LeiningenBuilder extends Builder {
 
     private final String task;
+    private String subdirPath;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public LeiningenBuilder(String task) {
+    public LeiningenBuilder(String task, String subdirPath) {
         this.task = task;
+        this.subdirPath = subdirPath;
     }
 
     /**
@@ -55,6 +57,10 @@ public class LeiningenBuilder extends Builder {
      */
     public String getTask() {
         return task;
+    }
+
+    public String getSubdirPath() {
+        return subdirPath;
     }
 
     @Override
@@ -74,6 +80,10 @@ public class LeiningenBuilder extends Builder {
 		listener.fatalError("invalid task: " + task);
                 build.setResult(Result.ABORTED);
 		return false;
+	}
+
+	if (subdirPath != null && subdirPath.length() > 0) {
+		workDir = new FilePath(workDir, subdirPath);
 	}
 
 	try {
