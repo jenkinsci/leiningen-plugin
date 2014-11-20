@@ -44,12 +44,15 @@ public class LeiningenBuilder extends Builder {
 
     private final String task;
     private String subdirPath;
+    private String jvmOpts;
+
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public LeiningenBuilder(String task, String subdirPath) {
+    public LeiningenBuilder(String task, String subdirPath, String jvmOpts) {
         this.task = task;
         this.subdirPath = subdirPath;
+        this.jvmOpts = jvmOpts;
     }
 
     /**
@@ -62,6 +65,11 @@ public class LeiningenBuilder extends Builder {
     public String getSubdirPath() {
         return subdirPath;
     }
+
+    public String getJvmOpts() {
+        return jvmOpts;
+    }
+
 
     @Override
     public boolean perform(AbstractBuild build, Launcher launcher, BuildListener listener) {
@@ -138,9 +146,17 @@ public class LeiningenBuilder extends Builder {
 		args.add("-client");
 		args.add("-XX:+TieredCompilation");
 		args.add("-Xbootclasspath/a:" +  descriptor.getJarPath());
+
+                // TODO: handle also spaces within the options, like '-Dvalue="some string"'
+                for(String jo : jvmOpts.split(" ")) {
+                  if(! "".equals(jo)) {
+                    args.add(jo);
+                  }
+                }
+
 		args.add("-Dfile.encoding=UTF-8");
 		args.add("-Dmaven.wagon.http.ssl.easy=false");
-		args.add("-Dleiningen.original.pwd=" + workDir);
+                args.add("-Dleiningen.original.pwd=" + workDir);
 		args.add("-cp");
 		args.add(jarPath);
 		args.add("clojure.main");
@@ -223,7 +239,7 @@ public class LeiningenBuilder extends Builder {
 	}
 
         public boolean isApplicable(Class<? extends AbstractProject> aClass) {
-            // Indicates that this builder can be used with all kinds of project types 
+            // Indicates that this builder can be used with all kinds of project types
             return true;
         }
 
@@ -246,4 +262,3 @@ public class LeiningenBuilder extends Builder {
         }
     }
 }
-
