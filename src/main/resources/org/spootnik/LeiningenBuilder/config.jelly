@@ -3,9 +3,12 @@
   <f:entry title="Leiningen Task Name and Arguments" field="task">
     <f:textbox default="jar" />
   </f:entry>
-  
+
   <f:advanced>
     <f:entry title="Sub-directory Path" field="subdirPath">
+      <f:textbox/>
+    </f:entry>
+    <f:entry title="JVM options" field="jvmOpts">
       <f:textbox/>
     </f:entry>
   </f:advanced>
